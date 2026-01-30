@@ -88,9 +88,9 @@ Pod::Spec.new do |s|
     "core/Frameworks/asi-http-request/Classes/*.{h,m}"
 
   s.subspec 'Core' do |sp|
-    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "Core/**/*.{h,m}"
+    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "core/**/*.{h,m}"
     sp.exclude_files = (non_arc_files.dup << "core/ConnectSDK*Tests/**/*" << "core/Frameworks/LGCast/**/*.h")
-    sp.private_header_files = "Core/**/*_Private.h"
+    sp.private_header_files = "core/**/*_Private.h"
     sp.requires_arc = true
 
     sp.dependency 'ConnectSDK/no-arc'
