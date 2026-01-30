@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.social_media_url   = "http://twitter.com/ConnectSDK"
   s.platform     = :ios, "11.0"
   s.ios.deployment_target = "11.0"
-  s.source       = { :git => "https://github.com/ConnectSDK/Connect-SDK-iOS.git",
+  s.source       = { :git => "https://github.com/dota2AndTI/ConnectCastSDK.git",
                      :tag => s.version,
                      :submodules => true }
 
@@ -88,7 +88,6 @@ Pod::Spec.new do |s|
     "core/Frameworks/asi-http-request/Classes/*.{h,m}"
 
   s.subspec 'Core' do |sp|
-    sp.dependency 'ConnectSDK/Core'  # 依赖其他子规格
     sp.source_files  = "ConnectSDKDefaultPlatforms.h", "Core/**/*.{h,m}"
     sp.exclude_files = (non_arc_files.dup << "core/ConnectSDK*Tests/**/*" << "core/Frameworks/LGCast/**/*.h")
     sp.private_header_files = "Core/**/*_Private.h"
