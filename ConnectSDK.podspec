@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "11.0"
   s.source       = { :git => "https://github.com/ConnectSDK/Connect-SDK-iOS.git",
                      :tag => s.version,
-                     :submodules => false }
+                     :submodules => true }
 
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC"
