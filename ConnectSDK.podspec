@@ -88,12 +88,10 @@ Pod::Spec.new do |s|
     "core/Frameworks/asi-http-request/Classes/*.{h,m}"
 
   s.subspec 'Core' do |sp|
-      sp.source      = { :git => "https://github.com/ConnectSDK/Connect-SDK-iOS-Core.git",
-                         :tag => "2.1.8"}
-  
-    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "**/*.{h,m}"
+    sp.dependency 'ConnectSDK/Core'  # 依赖其他子规格
+    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "Core/**/*.{h,m}"
     sp.exclude_files = (non_arc_files.dup << "core/ConnectSDK*Tests/**/*" << "core/Frameworks/LGCast/**/*.h")
-    sp.private_header_files = "**/*_Private.h"
+    sp.private_header_files = "Core/**/*_Private.h"
     sp.requires_arc = true
 
     sp.dependency 'ConnectSDK/no-arc'
