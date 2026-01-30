@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = "11.0"
   s.source       = { :git => "https://github.com/ConnectSDK/Connect-SDK-iOS.git",
                      :tag => s.version,
-                     :submodules => true }
+                     :submodules => false }
 
   s.xcconfig = {
       "OTHER_LDFLAGS" => "$(inherited) -ObjC"
@@ -88,9 +88,12 @@ Pod::Spec.new do |s|
     "core/Frameworks/asi-http-request/Classes/*.{h,m}"
 
   s.subspec 'Core' do |sp|
-    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "core/**/*.{h,m}"
+      sp.source      = { :git => "https://github.com/ConnectSDK/Connect-SDK-iOS-Core.git",
+                         :tag => "2.1.8"}
+  
+    sp.source_files  = "ConnectSDKDefaultPlatforms.h", "**/*.{h,m}"
     sp.exclude_files = (non_arc_files.dup << "core/ConnectSDK*Tests/**/*" << "core/Frameworks/LGCast/**/*.h")
-    sp.private_header_files = "core/**/*_Private.h"
+    sp.private_header_files = "**/*_Private.h"
     sp.requires_arc = true
 
     sp.dependency 'ConnectSDK/no-arc'
